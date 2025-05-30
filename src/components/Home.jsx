@@ -6,9 +6,12 @@ const Home = () => {
   return (
     <div>
     <Header/>
+    <section>
+    <Cardpizzag/>
     <Cardpizza/>
     <Cardpizza/>
-    <Cardpizza/>
+    </section>
+   
     </div>
   )
 }

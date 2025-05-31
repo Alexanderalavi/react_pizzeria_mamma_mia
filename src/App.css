@@ -71,3 +71,26 @@ hr{
   width: 70%;
   border: 2px 2px white;
 }
+
+.galeria{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ingredientes{
+  text-align: center;
+}
+
+.linea{
+  width: 100%;
+}
+.precio{
+  text-align: center;
+}
+.botoneria{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+

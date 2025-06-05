@@ -6,7 +6,7 @@ const Home = () => {
   return (
    <div>
  <Header/>
- <section class="galeria">
+ <section className="galeria">
 <Tarjetapizza imagen="https://firebasestorage.googleapis.com/v0/b/apis-varias-mias.appspot.co
 m/o/pizzeria%2Fpizza-1239077_640_cl.jpg?alt=media&token=6a9a33da-5c00-49d4-9
 080-784dcc87ec2c" nombre="Pizza Napolitana" alternativo="Napolitana" ingredientes={["mozzarella", "tomates", "jamón", "orégano"]}

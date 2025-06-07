@@ -19,19 +19,19 @@ const validarDatos = (e) => {
        <section>
         <h1 className='titulo'>Registro</h1>
       <form className='ingresoDatos' onSubmit={validarDatos}>
-        <div>
+        <div className='forma'>
             <label> Nombre</label>
             <input type='text' onChange={(e) => (setNombre(e.target.value))}></input>
         </div>
-            <div>
+            <div className='forma'>
             <label> Email</label>
             <input type='email' onChange={(e) => (setEmail(e.target.value))}></input>
         </div>
-            <div>
+            <div className='forma'>
             <label> Password</label>
             <input type='password' onChange={(e) => (setPassword(e.target.value))}></input>
         </div>
-        <div>
+        <div className='forma'>
             <label> Confirmar Password</label>
             <input type='password' onChange={(e) => setConfirmPassword(e.target.value)} />
         </div>

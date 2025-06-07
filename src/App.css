@@ -94,3 +94,23 @@ hr{
   justify-content: space-evenly;
 }
 
+.titulo {
+  text-align: center;
+}
+
+.ingresoDatos{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.forma{
+    display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}

@@ -15,14 +15,14 @@ const [email, setEmail] = useState('');
   }
   return (
   <section>
-      <h1 className='titulo'>Iniciar Sesión</h1>
+      <h1 className='titulo'>Login</h1>
       <form className='ingresoDatos' onSubmit={validarLogin}>
-        <div>
+        <div className='forma'>
           <label>Email</label>
           <input type="email" onChange={(e) => setEmail(e.target.value)} />
         </div>
 
-        <div>
+        <div className='forma'>
           <label>Contraseña</label>
           <input type="password" onChange={(e) => setPassword(e.target.value)}/>
         </div>

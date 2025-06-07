@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Swal from 'sweetalert2';
 
 const LoginPage = () => {
 
@@ -10,9 +11,26 @@ const [email, setEmail] = useState('');
     e.preventDefault();
 
     if (!email.trim() || !password.trim()) {
-      return alert('Todos los campos son obligatorios!')
-    } else { alert('Inicio de sesión exitoso')}
-  }
+    return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Todos los campos son necesarios!",
+      });
+    } else { 
+       return  Swal.fire({
+         title: "Registro Exitoso!",
+         width: 600,
+         padding: "3em",
+         color: "#716add",
+         background: "#fff url(/images/trees.png)",
+         backdrop: `
+           rgba(0,0,123,0.4)
+           url("/images/nyan-cat.gif")
+           left top
+           no-repeat
+         `
+       });
+  }}
   return (
   <section>
       <h1 className='titulo'>Login</h1>
@@ -28,7 +46,7 @@ const [email, setEmail] = useState('');
         </div>
 
         <div>
-          <button type="submit">Ingresar</button>
+            <button type="submit" className="btn btn-primary">Ingresar</button>
         </div>
       </form>
     </section>

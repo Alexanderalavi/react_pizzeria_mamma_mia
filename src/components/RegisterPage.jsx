@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Swal from 'sweetalert2'
 
 const RegisterPage = () => {
 
@@ -9,11 +10,31 @@ const RegisterPage = () => {
 const validarDatos = (e) => {
     e.preventDefault()
   if (!nombre.trim() || !email.trim() || !password.trim()) {
-      alert("Todos los campos son obligatorios!");
+            return Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Todos los campos son necesarios!",
+});
     } else if (password !== confirmPassword) {
-      return alert("Las contraseñas no coinciden");
+      return Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "contraseñas no coinciden!",
+});
     } else {
-      alert("Registro Exitoso!");
+      Swal.fire({
+  title: "Registro Exitoso!",
+  width: 600,
+  padding: "3em",
+  color: "#716add",
+  background: "#fff url(/images/trees.png)",
+  backdrop: `
+    rgba(0,0,123,0.4)
+    url("/images/nyan-cat.gif")
+    left top
+    no-repeat
+  `
+});
     }}
   return (
        <section>
@@ -36,7 +57,7 @@ const validarDatos = (e) => {
             <input type='password' onChange={(e) => setConfirmPassword(e.target.value)} />
         </div>
         <div>
-            <button type='submit'>Registrarse</button>
+            <button type="submit" className="btn btn-primary">Registrarse</button>
         </div>
       </form>
     </section>

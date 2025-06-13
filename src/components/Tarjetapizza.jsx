@@ -5,7 +5,7 @@ const Tarjetapizza = (props) => {
     <div className="card col-3" style={{ width: '32rem' }}>
       <img src={props.pizza.img} className="card-img-top"/>
       <div className="card-body">
-        <h5 className="card-title">{props.pizza.name}</h5>
+        <h5 className="card-title text-capitalize">pizza {props.pizza.name}</h5>
         <hr className="linea" />
         <section className="ingredientes">
         <h3>Ingredientes:</h3>

@@ -6,15 +6,17 @@ import LoginPage from './components/LoginPage'
 import Navbar from './components/Navbar'
 import RegisterPage from './components/RegisterPage'
 import 'sweetalert2/dist/sweetalert2.min.css'
+import CartPizza from './components/CartPizza'
 
 function App() {
 
   return (
     <>
 <Navbar/>
-<Home/>
+{/*<Home/>*/}
 {/*<RegisterPage/>*/}
 {/*<LoginPage/>*/}
+<CartPizza />
 <Footer/>
     </>
   )

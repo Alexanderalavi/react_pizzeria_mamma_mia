@@ -12,9 +12,9 @@ function App() {
   return (
     <>
 <Navbar/>
-{/*<Home/>*/}
+<Home/>
 {/*<RegisterPage/>*/}
-<LoginPage/>
+{/*<LoginPage/>*/}
 <Footer/>
     </>
   )

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { pizzaCart as carroDefecto } from '../data/pizzas';
+import { pizzaCart } from '../data/pizzas';
 
 const CartPizza = () => {
-  const [cart, setCart] = useState(carroDefecto)
+  const [cart, setCart] = useState(pizzaCart)
   const cantidadPizza = (id, variacion) => {setCart(prev => prev.map(pizza =>pizza.id === id ? { ...pizza, count: pizza.count + variacion } : pizza).filter(pizza => pizza.count > 0))}
   const total = cart.reduce((guardado, pizza) => guardado + pizza.price * pizza.count, 0)
 

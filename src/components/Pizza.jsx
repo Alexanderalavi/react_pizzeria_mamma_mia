@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from 'react'
 
-const Tarjetapizza = () => {
+const Pizza = () => {
 
-
- const [pizzas, setPizzas] = useState([]) 
-
-    useEffect(() => {
-        consultarApiPizzas()
-    },[])
-
-    const consultarApiPizzas = async () => {
-        const url = "http://localhost:5000/api/pizzas"
-        const response = await fetch (url)
-        const data = await response.json()
-        setPizzas(data)
-        console.log(data)
-    }
-
-  return (
+    const [pizza, setPizza] = useState([]) 
+    
+        useEffect(() => {
+            consultarApiPizza()
+        },[])
+    
+        const consultarApiPizza = async () => {
+            const url = "http://localhost:5000/api/pizzas/p001"
+            const response = await fetch (url)
+            const data = await response.json()
+            setPizza(data)
+        }
+ return (
     <div className="container mt-4 py-2">
      <div className="row g-4 justify-content-center">
-      {pizzas.map((pizza) => (
           <div className="col-md-4" key={pizza.id}>
         <div className="card" style={{ width: '25rem' }} key={pizza.id}>
           <img src={pizza.img} className="card-img-top" alt={pizza.name} />
@@ -46,10 +42,9 @@ const Tarjetapizza = () => {
           </div>
         </div>
         </div>
-      ))}
     </div>
     </div>
   )
 }
 
-export default Tarjetapizza;
+export default Pizza

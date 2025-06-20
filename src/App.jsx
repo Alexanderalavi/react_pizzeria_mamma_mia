@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import RegisterPage from './components/RegisterPage'
 import 'sweetalert2/dist/sweetalert2.min.css'
 import CartPizza from './components/CartPizza'
+import Pizza from './components/Pizza'
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
 {/*<Home/>*/}
 {/*<RegisterPage/>*/}
 {/*<LoginPage/>*/}
-<CartPizza />
+{/*<CartPizza />*/}
+<Pizza />
 <Footer/>
     </>
   )

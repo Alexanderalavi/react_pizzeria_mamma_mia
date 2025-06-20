@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 const Pizza = () => {
 
-    const [pizza, setPizza] = useState([]) 
+    const [pizza, setPizza] = useState({ingredients: []}) 
     
         useEffect(() => {
             consultarApiPizza()

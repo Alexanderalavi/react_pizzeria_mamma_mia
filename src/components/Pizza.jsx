@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 const Pizza = () => {
 
-    const [pizza, setPizza] = useState({ingredients: []}) 
+    const [pizza, setPizza] = useState({}) 
     
         useEffect(() => {
             consultarApiPizza()
@@ -28,8 +28,8 @@ const Pizza = () => {
             <section className="ingredientes">
               <h6>Ingredientes:</h6>
               <ul className="list-unstyled">
-                {pizza.ingredients.map((ingrediente, i) => (
-                  <li key={i}>🍕 {ingrediente}</li>
+                {pizza.ingredients?.map((ingrediente) => (
+                  <li key={ingrediente}>🍕 {ingrediente}</li>
                 ))}
               </ul>
             </section>

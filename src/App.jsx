@@ -11,11 +11,13 @@ import { Route, Routes } from 'react-router-dom'
 import HomePage from './views/HomePage'
 import ProfilePage from './views/ProfilePage'
 import NotFound from './views/NotFound'
+import { CartProvider } from './context/CartContext'
 
 function App() {
 
   return (
     <>
+    <CartProvider>
 <Navbar/>
 <Routes>
   <Route path='/' element={<HomePage />} />
@@ -27,6 +29,7 @@ function App() {
    <Route path='/*' element={<NotFound />} />
 </Routes>
 <Footer/>
+</CartProvider>
     </>
   )
 }

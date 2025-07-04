@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useCart } from '../context/CartContext'
 
 const Tarjetapizza = () => {
 
-
+const { agregarCarro } = useCart()
  const [pizzas, setPizzas] = useState([]) 
 
     useEffect(() => {
@@ -41,7 +42,7 @@ const Tarjetapizza = () => {
             <h5 className="precio">Precio: ${pizza.price}</h5>
             <div className="botoneria d-flex justify-content-between">
               <button type="button" className="btn btn-outline-dark">Ver Más 👀</button>
-              <button type="button" className="btn btn-dark">Añadir 🛒</button>
+              <button onClick={() => agregarCarro(pizza)} type="button" className="btn btn-dark">Añadir 🛒</button>
             </div>
           </div>
         </div>

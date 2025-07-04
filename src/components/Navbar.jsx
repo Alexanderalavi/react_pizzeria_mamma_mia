@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 const Navbar = () => {
-  const total = 25000;
-  const token = false;
+   const { suma } = useCart()
+  const token = false
+
 if(token === false){
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,7 +26,7 @@ if(token === false){
           <Link type="button" className="btn btn-outline-light me-2" to='register'>🔐 Register</Link> 
         </li>
       </ul>
-     <Link type="button" className="btn btn-outline-primary" to='/cart'> 🛒 Total: $ {total}</Link>
+     <Link type="button" className="btn btn-outline-primary" to='/cart'> 🛒 Total: $ {suma}</Link>
     </div>
   </div>
 </nav>
@@ -50,7 +52,7 @@ else{
          <button type="button" className="btn btn-outline-light me-2">🔒 Logout</button> 
         </li>
       </ul>
-      <Link type="button" className="btn btn-outline-primary" to='/cart'> 🛒 Total: $ {total}</Link>
+      <Link type="button" className="btn btn-outline-primary" to='/cart'> 🛒 Total: $ {suma}</Link>
     </div>
   </div>
 </nav>
@@ -59,3 +61,4 @@ else{
 }
 
 export default Navbar
+

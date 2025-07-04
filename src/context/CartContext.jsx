@@ -3,16 +3,14 @@ import { createContext, useState, useContext } from 'react';
 export const CartContext = createContext()
 export const useCart = () => useContext(CartContext)
 
-
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([])
+  const [carro, setCarro] = useState([])
 
   const agregarCarro = (pizza) => {
-    setCart(prev => { 
-        const total = prev.find(item => item.id === pizza.id)
-      if (total) {
-        return prev.map(item => item.id === pizza.id ? { ...item, count: item.count + 1 } : item
-        )
+    setCarro(prev => {
+      const existe = prev.find(item => item.id === pizza.id)
+      if (existe) {
+        return prev.map(item => item.id === pizza.id ? { ...item, count: item.count + 1 } : item)
       } else {
         return [...prev, { ...pizza, count: 1 }]
       }
@@ -20,16 +18,15 @@ export const CartProvider = ({ children }) => {
   }
 
   const RemoverCarro = (id) => {
-    setCart(prev =>
-      prev.map(item => item.id === id ? { ...item, count: item.count - 1 } : item).filter(item => item.count > 0)
+    setCarro(prev =>prev.map(item => item.id === id ? { ...item, count: item.count - 1 } : item).filter(item => item.count > 0)
     )
   }
 
-  const total = cart.reduce((guardado, item) => guardado + item.price * item.count, 0);
+  const suma = carro.reduce((guardado, item) => guardado + item.price * item.count, 0)
 
   return (
-    <CartContext.Provider value={{ cart, agregarCarro, RemoverCarro, total }}>
+    <CartContext.Provider value={{ carro, agregarCarro, RemoverCarro, suma }}>
       {children}
     </CartContext.Provider>
-  );
-};
+  )
+}

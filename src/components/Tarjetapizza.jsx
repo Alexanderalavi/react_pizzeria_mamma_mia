@@ -53,4 +53,4 @@ const { agregarCarro } = useCart()
   )
 }
 
-export default Tarjetapizza;
+export default Tarjetapizza

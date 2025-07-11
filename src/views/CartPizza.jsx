@@ -50,4 +50,4 @@ const CartPizza = () => {
   )
 }
 
-export default CartPizza;
+export default CartPizza

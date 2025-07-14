@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
+import { useUser } from '../context/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const { setUser } = useUser()
+  const navigate = useNavigate()
 
   const validarLogin = (e) => {
     e.preventDefault()
@@ -16,7 +20,7 @@ const LoginPage = () => {
       })
     }
 
-    if (password.length <= 6) {
+    if (password.length < 7) {
       return Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -24,8 +28,15 @@ const LoginPage = () => {
       })
     }
 
-    return Swal.fire({
-      title: "Registro Exitoso!",
+    // Simular login exitoso
+    setUser({
+      email,
+      displayName: email.split('@')[0],
+      token: true
+    })
+
+    Swal.fire({
+      title: "Login Exitoso!",
       width: 600,
       padding: "3em",
       color: "#716add",
@@ -36,14 +47,14 @@ const LoginPage = () => {
         left top
         no-repeat
       `
-    })
+    }).then(() => navigate('/'))
   }
 
   return (
     <section>
-      <h1 className='titulo'>Login</h1>
-      <form className='ingresoDatos' onSubmit={validarLogin}>
-        <div className='forma'>
+      <h1 className="titulo">Login</h1>
+      <form className="ingresoDatos" onSubmit={validarLogin}>
+        <div className="forma">
           <label>Email</label>
           <input
             type="email"
@@ -52,7 +63,7 @@ const LoginPage = () => {
           />
         </div>
 
-        <div className='forma'>
+        <div className="forma">
           <label>Contraseña</label>
           <input
             type="password"
@@ -69,4 +80,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage;
+export default LoginPage

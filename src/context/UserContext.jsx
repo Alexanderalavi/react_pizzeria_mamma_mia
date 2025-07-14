@@ -4,12 +4,16 @@ const UserContext = createContext()
 export const useUser = () => useContext(UserContext)
 
 export const UserProvider = ({ children }) => {
-  const [token, setToken] = useState(true) // token por defecto en true
+  const [user, setUser] = useState({
+    email: "peppino@pizzatower.com",
+    displayName: "Peppino",
+    token: true,
+  })
 
-  const logout = () => setToken(false)
+  const logout = () => setUser({ token: false })
 
   return (
-    <UserContext.Provider value={{ token, logout }}>
+    <UserContext.Provider value={{ user, logout }}>
       {children}
     </UserContext.Provider>
   )

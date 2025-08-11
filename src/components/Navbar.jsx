@@ -3,11 +3,11 @@ import { useCart } from '../context/CartContext'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
-  const { token, logout } = useUser()
+  const { user, logout } = useUser()
   const { suma } = useCart()
   const navigate = useNavigate()
 
-  const handleLogout = () => {
+  const cerrarSesion = () => {
     logout()
     navigate('/login')
   }
@@ -24,13 +24,13 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="btn btn-outline-light me-2" to="/">🍕 Home</Link>
             </li>
-            {token ? (
+            {user.token ? (
               <>
                 <li className="nav-item">
                   <Link className="btn btn-outline-light me-2" to="/profile">🔓 Profile</Link>
                 </li>
                 <li className="nav-item">
-                  <button className="btn btn-outline-light me-2" onClick={handleLogout}>🔒 Logout</button>
+                  <button className="btn btn-outline-light me-2" onClick={cerrarSesion}>🔒 Logout</button>
                 </li>
               </>
             ) : (
@@ -52,4 +52,5 @@ const Navbar = () => {
     </nav>
   )
 }
+
 export default Navbar

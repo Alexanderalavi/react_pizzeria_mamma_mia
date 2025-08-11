@@ -6,7 +6,7 @@ const ProfilePage = () => {
   const { user, logout } = useUser()
   const navigate = useNavigate()
 
-  const handleLogout = () => {
+  const cerraSesion = () => {
     logout()
     navigate('/login')
   }
@@ -14,12 +14,19 @@ const ProfilePage = () => {
   return (
     <section className="container my-5 text-center">
       <h2 className="fw-bolder text-uppercase">Tu Perfil</h2>
-      <p>
-        Email: <span className="fw-bolder">{user.email}</span>
-      </p>
-      <button className="btn btn-primary mt-3" onClick={handleLogout}>
-        Cerrar Sesión
-      </button>
+
+      {user.email ? (
+        <>
+          <p>
+            Email: <span className="fw-bolder">{user.email}</span>
+          </p>
+          <button className="btn btn-primary mt-3" onClick={cerraSesion}>
+            Cerrar Sesión
+          </button>
+        </>
+      ) : (
+        <p className="text-danger">No estás autenticado</p>
+      )}
     </section>
   )
 }
